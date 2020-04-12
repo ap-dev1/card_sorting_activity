@@ -23,7 +23,7 @@ export default class WelcomePage extends Component {
     const loginResult = axios(
       {
           method: "get",
-          url: "http://127.0.0.1:3001",
+          url: "http://127.0.0.1:3001/auth",
           headers: {
               authorization: `${this.state.userName}`,
               password: `${this.state.password}`,
