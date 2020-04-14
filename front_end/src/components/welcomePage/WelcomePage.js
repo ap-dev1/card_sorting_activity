@@ -22,13 +22,11 @@ export default class WelcomePage extends Component {
     event.preventDefault();
     const loginResult = axios(
       {
-          method: "get",
-          url: "http://127.0.0.1:3001/auth",
-          headers: {
+          method: "post",
+          url: "http://127.0.0.1:3001/auth/login",
+          data: {
               authorization: `${this.state.userName}`,
-              password: `${this.state.password}`,
-              "content-type": "application/x-www-form-urlencoded",
-              "Access-Control-Allow-Origin": true
+              password: `${this.state.password}`
           },
           crossDomain: true,
 
