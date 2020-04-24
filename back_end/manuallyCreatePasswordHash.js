@@ -1,7 +1,7 @@
 // const uuid = require('uuid/v4');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
-const password = '';
+const password = '555beast';
 let hashedPass;
 
 const testFunction = async() =>{
