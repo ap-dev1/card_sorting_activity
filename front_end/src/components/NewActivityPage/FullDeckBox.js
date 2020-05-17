@@ -1,19 +1,23 @@
-import React, { Component } from 'react'
+import React from 'react'
 import ValueBox from './ValueBox'
 
-export default class FullDeckBox extends Component {
-  principles = [
+const FullDeckBox = (props) => {
+  const principles = [
     "Power",
     "Compassion",
     "Money"
   ]
-  render() {
+
+  const principleBoxes = principles.map((principle)=>{
+    return <ValueBox value={principle}/>
+  })
+
+
     return (
       <div>
-        {this.principles.map((currentPrinciple)=>{
-          return <ValueBox value={currentPrinciple}/>
-        })}
+        {principleBoxes}
       </div>
     )
-  }
 }
+
+export default FullDeckBox

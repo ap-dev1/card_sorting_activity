@@ -34,7 +34,7 @@ authRouter.post("/login", async (req, res) => {
   const userObject = dynamoResponse.Items[0];
   const authenticationResult = await bcrypt.compare(password, userObject.password);
   if (authenticationResult){  // hashed password on dynamo is the same as the unhashed sent by user
-    const ttl = new Date().getTime() + 7200000;
+    const ttl = new Date().getTime() + 60000;
     const newToken = {
       value: uuid(),
       ttl
@@ -71,11 +71,52 @@ authRouter.post("/login", async (req, res) => {
   }
   else{
     res.write(
-      JSON.stringify({ status: 500, message: "Unauthorized" })
+      JSON.stringify({ status: 401, message: "Unauthorized" })
     );
     res.end();
   }
 });
+
+authRouter.post("/tokenAuthenticate", async(req,res) =>{
+  const authorizationName = req.body.authorizationName
+  const submittedTokenValue = req.body.token
+  const dynamoParams = {
+    TableName: "valuesSortCardUserAuth",
+    KeyConditionExpression: "email = :e",
+    ScanIndexForward: false,
+    ExpressionAttributeValues: {
+      ":e": authorizationName,
+    },
+  };
+
+  const dynamoResponse = await docClient.query(dynamoParams).promise();
+  console.log("dynamoResponse". dynamoResponse)
+  const storedTokenValue = dynamoResponse.Items[0].token.value;
+  const storedTokenTTL = dynamoResponse.Items[0].token.ttl
+  const now = new Date().getTime()
+  if (submittedTokenValue === storedTokenValue && storedTokenTTL > now){
+    res.status(200)
+    res.write(
+      JSON.stringify({ status: 200})
+    );
+    res.end();
+  }
+  else if(submittedTokenValue !== storedTokenValue) {
+    res.status(200)
+    res.write(
+      JSON.stringify({ status: 401, message: "Unauthorized. Get the hell out of here" })
+    );
+    res.end();
+  }
+  else if(storedTokenTTL <= now) {
+    res.status(200)
+    res.write(
+      JSON.stringify({ status: 440, message: "Session expired, please relogin" })
+    );
+    res.end();
+  }
+
+})
 
 module.exports = {
   authRouter,

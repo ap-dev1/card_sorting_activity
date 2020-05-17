@@ -33,6 +33,9 @@ export default class WelcomePage extends Component {
       }
   ).then((response)=>{
       console.log('Login Result', response)
+      if(response.status === 200){
+        this.props.history.push(`/${this.state.userName}/${response.data.token}`)
+      }
   })
   }
 

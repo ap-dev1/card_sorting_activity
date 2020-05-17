@@ -22,9 +22,9 @@ const ChosenCardsDisplayer = styled.div`
 export default class ChosenCardsBox extends Component {
     render() {
         return (
-            <ChosenCardsBox>
+            <ChosenCardsDisplayer>
                 dummy text
-            </ChosenCardsBox>
+            </ChosenCardsDisplayer>
         )
     }
 }
