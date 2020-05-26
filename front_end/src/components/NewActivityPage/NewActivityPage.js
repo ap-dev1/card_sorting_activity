@@ -1,15 +1,20 @@
 import React, { Component } from 'react'
-import ValueBox from './ValueBox'
-import FullDeckBox from './FullDeckBox'
-import ChosenCardsBox from './ChosenCardsBox'
+import AllCards from './AllCards'
+import SelectedCards from './SelectedCards'
+
 
 export default class NewActivityPage extends Component {
-  render() {
-    return (
-      <div>
-        <FullDeckBox/>
-        <ChosenCardsBox/>
-      </div>
+
+
+
+  	render() {
+
+    	return (
+	      	<div>
+	       		<AllCards/>
+	        	<SelectedCards/>
+	      	</div>
+
     )
   }
 }

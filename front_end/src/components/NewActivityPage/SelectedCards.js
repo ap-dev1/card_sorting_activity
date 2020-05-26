@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-const ChosenCardsDisplayer = styled.div`
+
+
+
+const displaySelected = styled.div`
   border-radius: 10px;
   background-color: #ffffff;
   border: 2px solid green;
@@ -19,12 +22,15 @@ const ChosenCardsDisplayer = styled.div`
   }
 `
 
-export default class ChosenCardsBox extends Component {
+
+
+
+export default class SelectedCards extends Component {
     render() {
         return (
-            <ChosenCardsDisplayer>
+            <displaySelected>
                 dummy text
-            </ChosenCardsDisplayer>
+            </displaySelected>
         )
     }
 }

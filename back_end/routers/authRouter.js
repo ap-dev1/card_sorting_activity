@@ -5,6 +5,8 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const uuid = require('uuid/v4');
 
+
+// "connection template":
 const dynamoDB = new AWS.DynamoDB({
   region: "us-east-1",
   httpOptions: {
@@ -14,13 +16,18 @@ const dynamoDB = new AWS.DynamoDB({
     }),
   },
 });
+
+
 const docClient = new AWS.DynamoDB.DocumentClient({
   service: dynamoDB,
 });
 
+
 authRouter.post("/login", async (req, res) => {
   const authorizationName = req.body.authorization;
   const password = req.body.password;
+
+  //template for a message to DynamoDB:
   const dynamoParams = {
     TableName: "valuesSortCardUserAuth",
     KeyConditionExpression: "email = :e",
@@ -30,11 +37,14 @@ authRouter.post("/login", async (req, res) => {
     },
   };
 
+  // use querry to send the message to Dynamo; it is a method of docClient.
+  // await syntax can only be used in an async function. see above;
   const dynamoResponse = await docClient.query(dynamoParams).promise();
   const userObject = dynamoResponse.Items[0];
   const authenticationResult = await bcrypt.compare(password, userObject.password);
+  
   if (authenticationResult){  // hashed password on dynamo is the same as the unhashed sent by user
-    const ttl = new Date().getTime() + 60000;
+    const ttl = new Date().getTime() + 6000000;
     const newToken = {
       value: uuid(),
       ttl
@@ -45,10 +55,10 @@ authRouter.post("/login", async (req, res) => {
       Key: { 'email': userObject.email},
       UpdateExpression: "set #tk = :newToken",
       ExpressionAttributeValues: {
-        ":newToken" : newToken
+	":newToken" : newToken
       },
       ExpressionAttributeNames:{
-        "#tk": "token"
+	"#tk": "token"
       },
       ScanIndexForward: false,
       Limit: 1
@@ -57,14 +67,14 @@ authRouter.post("/login", async (req, res) => {
     try{
       const dynamoWrite = await docClient.update(dynamoWriteParams).promise();
       res.write(
-        JSON.stringify({ status: 200, token: newToken.value })
+	JSON.stringify({ status: 200, token: newToken.value })
       );
       res.end();
     }
     catch(err){
       console.log("Error authRouter.get", err);
       res.write(
-        JSON.stringify({ status: 500, message: 'Internal error' })
+	JSON.stringify({ status: 500, message: 'Internal error' })
       );
       res.end();
     }
@@ -89,11 +99,14 @@ authRouter.post("/tokenAuthenticate", async(req,res) =>{
     },
   };
 
+
   const dynamoResponse = await docClient.query(dynamoParams).promise();
   console.log("dynamoResponse". dynamoResponse)
   const storedTokenValue = dynamoResponse.Items[0].token.value;
   const storedTokenTTL = dynamoResponse.Items[0].token.ttl
   const now = new Date().getTime()
+
+
   if (submittedTokenValue === storedTokenValue && storedTokenTTL > now){
     res.status(200)
     res.write(
@@ -101,6 +114,8 @@ authRouter.post("/tokenAuthenticate", async(req,res) =>{
     );
     res.end();
   }
+
+
   else if(submittedTokenValue !== storedTokenValue) {
     res.status(200)
     res.write(
@@ -108,6 +123,8 @@ authRouter.post("/tokenAuthenticate", async(req,res) =>{
     );
     res.end();
   }
+
+
   else if(storedTokenTTL <= now) {
     res.status(200)
     res.write(

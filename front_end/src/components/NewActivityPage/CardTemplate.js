@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
+
+
+
 const ValueDisplayer = styled.div`
   border-radius: 10px;
   background-color: #ffffff;
@@ -20,7 +23,9 @@ const ValueDisplayer = styled.div`
 `
 
 
-export default class ValueBox extends Component {
+
+
+export default class CardTemplate extends Component {
   render() {
     return (
       <ValueDisplayer>

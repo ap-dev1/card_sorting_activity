@@ -7,22 +7,35 @@ import HomePage from './components/HomePage/HomePage';
 
 function App() {
 
+
+
   const WelcomePageWrapper = (props) =>(
-    <WelcomePage {...props}/>
-  )
+    <WelcomePage {...props}/>   )
+
 
   const HomePageWrapper = (props) => (
-    <HomePage {...props}/>
-  )
+    <HomePage {...props}/>  )
+
+
+  const ActivityPageWrapper = (props) => (
+    <NewActivityPage {...props}/>  )
+
+
 
   return (
     <Router>
       <Switch>
+
         <Route exact path="/" render={WelcomePageWrapper}/>
+
         <Route exact path="/:user/:sessionId" render={HomePageWrapper}/>
+
+        <Route exact path="/:user/:sessionId/NewActivityPage" render={ActivityPageWrapper}/>
+
       </Switch>
     </Router>
   );
 }
+
 
 export default App;
