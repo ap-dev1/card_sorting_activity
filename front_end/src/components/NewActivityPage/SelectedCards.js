@@ -1,36 +1,41 @@
-import React, { Component } from 'react'
-import styled from 'styled-components'
+import React, { useState } from 'react';
+import styled from 'styled-components';
 
+// bring a flexbox with five empty slots; that's it. 
 
-
-
-const displaySelected = styled.div`
-  border-radius: 10px;
-  background-color: #ffffff;
-  border: 2px solid green;
-  margin-bottom: 15px;
-  padding: 0 20px;
-  h6{
-      margin:10px;
-  }
-  .author{
-      margin-bottom: 5px;
-      margin-top: 15px;
-  }
-  button{
-      margin-bottom: 5px;
-  }
+const StyleSelectedCard = styled.div`
+    border: 1px solid navy;
+    background-color: #D5F5E3;
+    height: 50px;
+    text-align: center;
+    vertical-align: center;
 `
 
+const StyleContainerSelected = styled.div`
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    justify-content: space-between;
+    background-color: #ffffff;
+    border: 2px solid orange;
+    margin-bottom: 15px;
+`
 
+const SelectedCards = () => {
 
+    return (
 
-export default class SelectedCards extends Component {
-    render() {
-        return (
-            <displaySelected>
-                dummy text
-            </displaySelected>
-        )
-    }
+        <StyleContainerSelected>
+
+            <StyleSelectedCard >Honesty</StyleSelectedCard>
+            <StyleSelectedCard >Strength</StyleSelectedCard>
+            <StyleSelectedCard >Exercise</StyleSelectedCard>
+            <StyleSelectedCard >Justice</StyleSelectedCard>
+            <StyleSelectedCard >Sleep</StyleSelectedCard>
+
+        </StyleContainerSelected>
+    )
 }
+
+
+export default SelectedCards;
