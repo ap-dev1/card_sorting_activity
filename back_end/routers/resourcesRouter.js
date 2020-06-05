@@ -18,31 +18,33 @@ const dynamoDB = new AWS.DynamoDB({
 });
 
 
-
 // This helps talk to Dynamo in an easier way. 
 const docClient = new AWS.DynamoDB.DocumentClient({service: dynamoDB});
 
 
+const resourcesRouter = require("express").Router();
 
-//template for a message to DynamoDB:
-const dynamoParams = {
-  TableName: "cardsDict",
-  KeyConditionExpression: "card_name = :card_name",
-  ScanIndexForward: false,
-  ExpressionAttributeValues: {":card_name": "default cards"}};
+//the "/resoucres" part was specified in server.js
+// .post takes two parameters: the route and a function wuth two argumengs: the request and the response;
+resourcesRouter.post('/defaultCards', async (request, response) => { 
+
+  //template for a message to DynamoDB:
+  const dynamoParams = {
+    TableName: "cardsDict",
+    KeyConditionExpression: "card_name = :card_name",
+    ScanIndexForward: false,
+    ExpressionAttributeValues: {":card_name": "default cards"}};
 
 
-
-const callDynamo = async () => {
   const dynamoResponse = await docClient.query(dynamoParams).promise();
+
   const myDeck = dynamoResponse.Items[0].cards;
+
+  response.json(myDeck);
+
+  response.end();
 }
+  )
 
-  
-console.log("my deck")
-console.log(my)
-resourcesRouter.post("/NewActivityPage").then((response) => {myDeck})
-
-
-
-module.exports = {  resourcesRouter, };
+// module.exports = {resourcesRouter };
+module.exports = {x : resourcesRouter };

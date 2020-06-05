@@ -5,7 +5,10 @@ import SelectedCards from './SelectedCards'
 
 export default class NewActivityPage extends Component {
 
-
+	state = {
+		chosenCards: [];
+		
+	}
 
   	render() {
 

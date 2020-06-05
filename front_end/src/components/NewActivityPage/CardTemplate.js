@@ -7,17 +7,18 @@ import styled from 'styled-components'
 const ValueDisplayer = styled.div`
   border-radius: 10px;
   background-color: #ffffff;
-  border: 2px solid green;
+  border: 1px solid green;
   margin-bottom: 15px;
-  padding: 0 20px;
-  h6{
+  padding: 5px 10px;
+
+  h6 {
       margin:10px;
   }
   .author{
       margin-bottom: 5px;
       margin-top: 15px;
   }
-  button{
+  button {
       margin-bottom: 5px;
   }
 `
