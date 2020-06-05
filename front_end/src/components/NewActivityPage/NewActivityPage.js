@@ -21,7 +21,7 @@ export default class NewActivityPage extends Component {
 
 		return (
 			<div>
-				<SelectedCards chosenCards={fakeObject.state.chosenCards} />
+				<SelectedCards chosenCards={this.state.chosenCards} />
 				<AllCards />
 			</div>
 
