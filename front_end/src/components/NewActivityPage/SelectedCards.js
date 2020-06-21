@@ -21,21 +21,21 @@ const StyleContainerSelected = styled.div`
     margin-bottom: 15px;
 `
 
-const SelectedCards = () => {
+const SelectedCards = (props) => {
+    const cardsMap = props.chosenCards.map((value) => {
+
+        return (
+            <StyleSelectedCard>
+                {value}
+            </StyleSelectedCard>)
+    })
+
 
     return (
-
         <StyleContainerSelected>
-
-            <StyleSelectedCard >Honesty</StyleSelectedCard>
-            <StyleSelectedCard >Strength</StyleSelectedCard>
-            <StyleSelectedCard >Exercise</StyleSelectedCard>
-            <StyleSelectedCard >Justice</StyleSelectedCard>
-            <StyleSelectedCard >Sleep</StyleSelectedCard>
-
+            {cardsMap}
         </StyleContainerSelected>
     )
 }
-
 
 export default SelectedCards;

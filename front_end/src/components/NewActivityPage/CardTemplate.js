@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 
 
-
-
 const ValueDisplayer = styled.div`
   border-radius: 10px;
   background-color: #ffffff;
@@ -25,12 +23,20 @@ const ValueDisplayer = styled.div`
 
 
 
-
 export default class CardTemplate extends Component {
+
+  addCard = () => {
+    this.props.cardSelector(this.props.value)
+  }
+
+
+  
   render() {
     return (
       <ValueDisplayer>
         <h1>{this.props.value}</h1>
+        <button onClick={()=>this.addCard()} >Add</button>
+        
       </ValueDisplayer>
     )
   }

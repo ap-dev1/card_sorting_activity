@@ -55,7 +55,11 @@ const startActivity = () => {
     return (
       <div>
           <div>Congrats. Now what? </div>
+          <br></br>
           <button onClick={startActivity}>New Activity</button>
+          <br></br>
+          <h4>Previous sessions:</h4>
+
       </div>
     )
   }
