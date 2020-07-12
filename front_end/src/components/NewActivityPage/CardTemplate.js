@@ -6,11 +6,14 @@ const ValueDisplayer = styled.div`
   border-radius: 10px;
   background-color: #ffffff;
   border: 1px solid green;
+  margin-left: 100px;
+  margin-right:100px;
   margin-bottom: 15px;
   padding: 5px 10px;
 
+
   h6 {
-      margin:10px;
+      margin:5px;
   }
   .author{
       margin-bottom: 5px;
@@ -19,14 +22,14 @@ const ValueDisplayer = styled.div`
   button {
       margin-bottom: 5px;
   }
-`
 
+`
 
 
 export default class CardTemplate extends Component {
 
   addCard = () => {
-    this.props.cardSelector(this.props.value)
+    this.props.cardSelector(this.props.id)
   }
 
 

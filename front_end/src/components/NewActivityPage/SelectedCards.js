@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-// bring a flexbox with five empty slots; that's it. 
 
 const StyleSelectedCard = styled.div`
     border: 1px solid navy;
     background-color: #D5F5E3;
-    height: 50px;
+    height: 75px;
     text-align: center;
     vertical-align: center;
+    padding: 20px;
 `
 
 const StyleContainerSelected = styled.div`
@@ -19,14 +19,17 @@ const StyleContainerSelected = styled.div`
     background-color: #ffffff;
     border: 2px solid orange;
     margin-bottom: 15px;
+    margin-left:100px;
+    margin-right: 100px;
 `
 
+
 const SelectedCards = (props) => {
-    const cardsMap = props.chosenCards.map((value) => {
+    const cardsMap = props.chosenCards.map((id) => {
 
         return (
             <StyleSelectedCard>
-                {value}
+                {id}
             </StyleSelectedCard>)
     })
 

@@ -21,16 +21,7 @@ const dynamoDB = new AWS.DynamoDB({
 // This helps talk to Dynamo in an easier way. 
 const docClient = new AWS.DynamoDB.DocumentClient({service: dynamoDB});
 
-
-
-
-
-
 //----------------------------------------------------------
-
-
-
-
 
 const resourcesRouter = require("express").Router();
 
@@ -42,8 +33,6 @@ const resourcesRouter = require("express").Router();
 
 
 resourcesRouter.post('/defaultCards', async (request, response) => { 
-
-
   
   //template for a message to DynamoDB:
   const dynamoParams = {
@@ -55,16 +44,7 @@ resourcesRouter.post('/defaultCards', async (request, response) => {
     
   const dynamoResponse = await docClient.query(dynamoParams).promise();
 
-
   const myDeck = dynamoResponse.Items[0].cards;
-
-
-
-
-
-
-
-
 
 
 
@@ -73,5 +53,4 @@ resourcesRouter.post('/defaultCards', async (request, response) => {
 }
   )
 
-// module.exports = {resourcesRouter };
 module.exports = { resourcesRouter };

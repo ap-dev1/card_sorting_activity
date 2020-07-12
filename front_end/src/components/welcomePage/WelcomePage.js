@@ -29,18 +29,17 @@ export default class WelcomePage extends Component {
 
   render() {
     return (
-      <div>
-        <div>
-          VALUES SORT CARD APP
-          
-        </div>
+      <div className="divWelcome">
+
+        <div className="divWelcome">VALUES SORT CARD APP</div>
+
         <Form onSubmit={this.handleSubmitLogin}>
           <Form.Field>
-            <label>User Name</label>
+            <label className="textLeft">User Name</label>
             <input name="userName" onChange={this.handleInputChange} placeholder='User Name'/>
           </Form.Field>
           <Form.Field>
-            <label>Password</label>
+            <label className="textLeft">Password</label>
             <input name="password" onChange={this.handleInputChange} placeholder='Password' />
           </Form.Field>
           <Button type="submit">Login</Button>

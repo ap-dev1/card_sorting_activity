@@ -4,11 +4,9 @@ import axios from 'axios';
 
 export default class AllCards extends Component {
 
-  // const [principles, setPrinciples] = useState([])
-  state = {
-    principles: []
-  }
+  state = { principles: [] }
 
+  
   testRequestAxios = async () => {
     const axiosResponse = await axios({
       method: "post",
@@ -16,6 +14,7 @@ export default class AllCards extends Component {
       crossDomain: true
     })
     const destructuredResponse = Object.entries(axiosResponse.data);
+
     this.setState({ principles: destructuredResponse })
   }
 
@@ -25,20 +24,16 @@ export default class AllCards extends Component {
   }
 
 
+
+
   render() {
+
 
     const principleBoxes = this.state.principles.map((principle) => {
       return (
-        <CardTemplate value={principle[1]} cardSelector={this.props.cardsSelector} />
+        <CardTemplate value={principle[1]} cardSelector={this.props.cardsSelector} id={principle[0]}/>
       )
     })
-
-
-    // const principleBoxes = this.principles.map((principle) => {
-    //   return (
-    //     <CardTemplate value={principle} cardSelector={this.props.cardsSelector} />
-    //   )
-    // })
 
 
     return (
