@@ -4,7 +4,7 @@ import axios from 'axios';
 
 export default class AllCards extends Component {
 
-  state = { principles: [], hiddenPrinciples: []}
+  state = { allPrinciples: [], visiblePrinciples: []}
 
   testRequestAxios = async () => {
     const axiosResponse = await axios({
@@ -16,8 +16,8 @@ export default class AllCards extends Component {
     const destructuredResponse = Object.entries(axiosResponse.data);
 
     this.setState({ 
-        principles: destructuredResponse, 
-        hiddenPrinciples: destructuredResponse }) 
+        allPrinciples: [...destructuredResponse], 
+        visiblePrinciples: [...destructuredResponse] }) 
     };
 
 
@@ -25,20 +25,26 @@ export default class AllCards extends Component {
 
 
   hideThisCard = (cardText) => {
-    const hiddenPrinciples = this.state.hiddenPrinciples;
-    const hidddenCard = hiddenPrinciples.find(x => x[0] === cardText);
-    const indexHiddenCard = hiddenPrinciples.indexOf(hidddenCard)
-    hiddenPrinciples.splice(indexHiddenCard, 1);
+    const visiblePrinciples = this.state.visiblePrinciples;
+    const hidddenCard = visiblePrinciples.find(x => x[0] === cardText);
+    const indexHiddenCard = visiblePrinciples.indexOf(hidddenCard)
+    visiblePrinciples.splice(indexHiddenCard, 1);
 
-    this.setState({ hiddenPrinciples: hiddenPrinciples })
+    this.setState({ visiblePrinciples: visiblePrinciples })
     
 };
-  
+
+    bringBackHiddenCards = () => {
+        const allPrinciples = [...this.state.allPrinciples];
+        this.setState({visiblePrinciples: allPrinciples})
+    }
+
+
   render() {
 
     
 
-    const principleBoxes = this.state.hiddenPrinciples.map((principle) => {
+    const principleBoxes = this.state.visiblePrinciples.map((principle) => {
       return (
         <CardTemplate 
             value={principle[1]} 
@@ -51,9 +57,12 @@ export default class AllCards extends Component {
 
 
     return (
-      <div>
-        {principleBoxes}
-      </div>
+        <div>
+            <button onClick={this.bringBackHiddenCards}>unhide all ({this.state.visiblePrinciples.length}, {this.state.allPrinciples.length}) </button>
+            <div style={{ overflowX: "scroll", height: "80vh" }}>        
+            {principleBoxes}
+            </div>
+        </div>
     )
   }
 }

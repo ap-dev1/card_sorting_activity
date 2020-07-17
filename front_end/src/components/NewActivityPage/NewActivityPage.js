@@ -13,12 +13,8 @@ const StyledButton = styled(Button)`
       : css`color: green;`
   }
 
-&&& {  .ui {
-      .button {
-        margin: ;
-  }
-  }
-  }
+    margin: inherit;
+
 `
 
 
@@ -76,6 +72,8 @@ export default class NewActivityPage extends Component {
     console.log("yes!");
   };
 
+
+
   saveSession = async () => {
     // previousSessions was pushed from Home page:
     const previousSessions = this.props.location.state[0].myData;
@@ -122,12 +120,12 @@ export default class NewActivityPage extends Component {
 
           {/*
                     semantic components, buttons, property of being disabled based on a variable value or something. */}
-          <Button className="btn1 green" disabled={this.state.btnSaveDisabled} onClick={() => this.saveSession()}>
+          <button disabled={this.state.btnSaveDisabled} className="btn1 green"  onClick={() => this.saveSession()}>
             Save session
-          </Button>
+          </button>
         </div>
 
-        <div style={{ overflowX: "scroll", height: "80vh" }} attached="bottom">
+        <div  attached="bottom">
           <AllCards
             className="test"
             cardsSelector={this.chooseCards}
