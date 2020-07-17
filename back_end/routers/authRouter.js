@@ -43,6 +43,7 @@ authRouter.post("/login", async (req, res) => {
   const userObject = dynamoResponse.Items[0];
   const authenticationResult = await bcrypt.compare(password, userObject.password);
   
+
   if (authenticationResult){  // hashed password on dynamo is the same as the unhashed sent by user
     const ttl = new Date().getTime() + 6000000;
     const newToken = {
@@ -87,6 +88,7 @@ authRouter.post("/login", async (req, res) => {
   }
 });
 
+
 authRouter.post("/tokenAuthenticate", async(req,res) =>{
   const authorizationName = req.body.authorizationName
   const submittedTokenValue = req.body.token
@@ -101,7 +103,10 @@ authRouter.post("/tokenAuthenticate", async(req,res) =>{
 
 
   const dynamoResponse = await docClient.query(dynamoParams).promise();
-  console.log("dynamoResponse". dynamoResponse)
+  
+  // console.log("dynamoResponse". dynamoResponse)
+  // console.log("dynamoResponse", dynamoResponse)
+
   const storedTokenValue = dynamoResponse.Items[0].token.value;
   const storedTokenTTL = dynamoResponse.Items[0].token.ttl
   const now = new Date().getTime()
@@ -114,12 +119,14 @@ authRouter.post("/tokenAuthenticate", async(req,res) =>{
     );
     res.end();
   }
+  
+
 
 
   else if(submittedTokenValue !== storedTokenValue) {
     res.status(200)
     res.write(
-      JSON.stringify({ status: 401, message: "Unauthorized. Get the hell out of here" })
+      JSON.stringify({ status: 401, message: "Unauthorized. Get the hell out of here. submittedTokenValue and stored value are: " + submittedTokenValue + " ; " +  storedTokenValue })
     );
     res.end();
   }

@@ -1,18 +1,22 @@
-import React, { Component } from 'react'
+import React, { Component , createRef} from 'react'
 import AllCards from './AllCards'
 import SelectedCards from './SelectedCards'
 import axios from 'axios';
+// import { Image, Input, Menu, Segment, Sticky } from 'semantic-ui-react'
+import {Sticky, Button } from 'semantic-ui-react'
 
 
 export default class NewActivityPage extends Component {
 	state = {
-        userChoices: ["1", "2", "3", "4", "5"],
+        userChoices: ["?", "?", "?", "?", "?"],
+        userExclusions: []
 	}
 
     
 	//method! we need something changed in one page but the button to change it
 	// belongs to a different component, which is lower in tree, and props
 	// cannot be passed up. 
+
 
 	// method inside of class:
 	chooseCards = (cardText) => {
@@ -24,7 +28,31 @@ export default class NewActivityPage extends Component {
 		this.setState({
             userChoices: newUserChoices
         })
+
+        if (newUserChoices.includes("?")) {
+            
+            console.log("yes!")
+          } else {
+            alert("five values. Submit?") 
+          }
 	}
+
+
+	hideCards = (cardText) => {
+
+        const newHiddenCards = this.state.userExclusions
+        
+		newHiddenCards.unshift(cardText)
+        newHiddenCards.pop()
+        
+		this.setState({
+            userExclusions: newHiddenCards
+        })
+
+        console.log("yes!")
+	}
+
+
 
 
 	saveSession = async () => {
@@ -50,7 +78,6 @@ export default class NewActivityPage extends Component {
 			crossDomain: true
         })
         
-        
         console.log("RESPONSE: ", axiosResponse)
         
         // return to home page:
@@ -62,13 +89,28 @@ export default class NewActivityPage extends Component {
 	render() {
 
 		//by adding chosenCards as a prop, it gets passed down to the instance of SelectedCards.
-		// The "this" refers to the NewActivityPage.
+        // The "this" refers to the NewActivityPage.
+        
+        //const fullDeck = this.AllCards.state;
+        //console.log("fullDeck: ", fullDeck)
 
 		return (
-			<div>
-				<SelectedCards chosenCards={this.state.userChoices} />
-				<button onClick={() => this.saveSession()}>Save session</button>
-				<AllCards cardsSelector={this.chooseCards} />
+			<div ref={this.contextRef}>
+
+                <Sticky context={this.contextRef}>
+                    <SelectedCards chosenCards={this.state.userChoices} attached='top' />
+
+{/* 
+                    semantic components, buttons, property of being disabled based on a variable value or something. */}
+                    <button className="btn1 green" onClick={() => this.saveSession()}>Save session</button>
+
+                </Sticky>
+
+                <div attached='bottom'>
+    				<AllCards cardsSelector={this.chooseCards} />
+                </div>
+
+
 
 			</div>
 

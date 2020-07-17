@@ -11,7 +11,7 @@ const testFunction = async() =>{
   const result = await bcrypt.compare(password, hashedPass)
   // console.log("RESULT", uuid());
   const ttl = new Date().getTime() + 7200000;
-  console.log(result)
+  console.log("manually created password", result)
   // console.log("TTL", ttl)
 };
 

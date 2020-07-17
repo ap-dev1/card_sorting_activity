@@ -3,25 +3,25 @@ import styled from 'styled-components'
 
 
 const ValueDisplayer = styled.div`
-  border-radius: 10px;
+  border-radius: 2px;
   background-color: #ffffff;
   border: 1px solid green;
-  margin-left: 100px;
-  margin-right:100px;
-  margin-bottom: 15px;
-  padding: 5px 10px;
+  margin: 5px;
+  padding: 5px 5px;
+  display: flex;
+  flex-direction: row;
 
 
-  h6 {
+  h3 {
       margin:5px;
+      justify-content: center;
+
   }
   .author{
       margin-bottom: 5px;
       margin-top: 15px;
   }
-  button {
-      margin-bottom: 5px;
-  }
+
 
 `
 
@@ -32,13 +32,18 @@ export default class CardTemplate extends Component {
     this.props.cardSelector(this.props.id)
   }
 
+  hideCard = () => {
+    this.props.cardRemover(this.props.id)
+  }
 
   
   render() {
     return (
       <ValueDisplayer>
-        <h1>{this.props.value}</h1>
-        <button onClick={()=>this.addCard()} >Add</button>
+        <button className='buttonsCard' onClick={()=>this.addCard()} >Add</button>
+        <button className='buttonsCard hide' onClick={()=>this.hideCard()} >Hide</button>
+        <h3>{this.props.value}</h3>
+
         
       </ValueDisplayer>
     )

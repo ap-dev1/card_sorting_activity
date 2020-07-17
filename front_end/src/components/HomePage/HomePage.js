@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import SessionTemplate from './SessionTemplate';
+import {Sticky, Button, Divider } from 'semantic-ui-react'
+
 
 export default class HomePage extends Component {
   state = {
@@ -64,7 +66,6 @@ export default class HomePage extends Component {
   };
 
 
-
   render() {
 
     // sort by timestamp, most recent first:
@@ -86,13 +87,13 @@ export default class HomePage extends Component {
 
     } else if (this.state.authStatus == 200) {
       return (
-        <div className="divHomePage"
-            >Welcome!
-          <button className="btnNewActivity" onClick={() => this.startActivity()}>New Activity</button>
-          <br></br>
+        <div className="divHomePage">
 
-          <h4>Previous sessions:</h4>
-          {previousSessionsBoxes}
+            <button className="btnNewActivity blue"  onClick={() => this.startActivity()}>New Activity</button>
+          
+            <Divider></Divider>
+
+            {previousSessionsBoxes}
         </div>
       );
 

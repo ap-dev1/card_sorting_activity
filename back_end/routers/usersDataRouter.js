@@ -40,7 +40,7 @@ usersDataRouter.post('/UpdatedSessions', async(request, response) => {
 
     // Update dynamo:
     docClient.put(params, function(err, data) {
-        if (err) console.log(err);
+        if (err) console.log("err", err);
         else console.log("data1: " , data);
       });
           

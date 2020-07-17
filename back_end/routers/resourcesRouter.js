@@ -29,9 +29,6 @@ const resourcesRouter = require("express").Router();
 // .post takes two parameters: the route and a function wuth two argumengs: the request and the response;
 
 
-
-
-
 resourcesRouter.post('/defaultCards', async (request, response) => { 
   
   //template for a message to DynamoDB:
@@ -41,12 +38,9 @@ resourcesRouter.post('/defaultCards', async (request, response) => {
     ScanIndexForward: false,
     ExpressionAttributeValues: {":card_name": "default cards"}};
 
-    
   const dynamoResponse = await docClient.query(dynamoParams).promise();
 
   const myDeck = dynamoResponse.Items[0].cards;
-
-
 
   response.json(myDeck);
   response.end();
