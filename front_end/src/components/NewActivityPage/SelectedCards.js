@@ -11,10 +11,12 @@ const StyleSelectedCard = styled.div`
     padding: 20px;
     width: 100%;
     color: #0e6c58;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 700;
+    background: ${props => props.theme.bg};
 `
 
+// background: ${props => props.theme.bg};
 
 const StyleSelectedContainer = styled.div`
     display: grid;
@@ -22,7 +24,7 @@ const StyleSelectedContainer = styled.div`
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     justify-content: space-between;
     background-color: #ffffff;
-    width: 100%;
+    margin:5px;
     margin-bottom: 20px;
 `
 

@@ -9,33 +9,37 @@ function App() {
 
 
 
-  const WelcomePageWrapper = (props) =>(
-    <WelcomePage {...props}/>   )
+    const WelcomePageWrapper = (props) =>(
+        <WelcomePage {...props}/>   )
 
 
-  const HomePageWrapper = (props) => (
-    <HomePage {...props}/>  )
+    const HomePageWrapper = (props) => (
+        <HomePage {...props}/>  )
 
 
-  const ActivityPageWrapper = (props) => (
-    <NewActivityPage {...props}/>  )
+    const ActivityPageWrapper = (props) => (
+        <NewActivityPage {...props}/>  )
 
 
+    // const NewUserPageWrapper = (props) => (
+    //     <NewUserPage {...props}/>  )
+    
 
-  return (
-    <Router>
-      <Switch>
+    return (
+        <Router>
+            <Switch>
 
-        <Route exact path="/" render={WelcomePageWrapper}/>
+                <Route exact path="/" render={WelcomePageWrapper}/>
 
-        <Route exact path="/:user/:sessionId" render={HomePageWrapper}/>
+                <Route exact path="/:user/:sessionId" render={HomePageWrapper}/>
 
-        <Route exact path="/:user/:sessionId/NewActivityPage" render={ActivityPageWrapper}/>
+                <Route exact path="/:user/:sessionId/NewActivityPage" render={ActivityPageWrapper}/>
 
-      </Switch>
-    </Router>
+                {/* <Route exact path="/CreateAccount" render={NewUserPageWrapper}/> */}
+
+            </Switch>
+        </Router>
   );
 }
-
 
 export default App;

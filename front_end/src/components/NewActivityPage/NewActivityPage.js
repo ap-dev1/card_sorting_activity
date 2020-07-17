@@ -4,32 +4,64 @@ import SelectedCards from "./SelectedCards";
 import axios from "axios";
 // import { Image, Input, Menu, Segment, Sticky } from 'semantic-ui-react'
 import { Sticky, Button } from "semantic-ui-react";
+import styled, {css} from 'styled-components';
+
+const StyledButton = styled(Button)`
+  ${props =>
+    props.disabled 
+    ? css`color: #D81052;`
+      : css`color: green;`
+  }
+
+&&& {  .ui {
+      .button {
+        margin: ;
+  }
+  }
+  }
+`
+
+
 export default class NewActivityPage extends Component {
   state = {
     userChoices: ["?", "?", "?", "?", "?"],
     userExclusions: [],
+    btnSaveDisabled: true
   };
 
   //method! we need something changed in one page but the button to change it
   // belongs to a different component, which is lower in tree, and props
   // cannot be passed up.
 
-  // method inside of class:
-  chooseCards = (cardText) => {
-    const newUserChoices = this.state.userChoices;
-    newUserChoices.unshift(cardText);
-    newUserChoices.pop();
 
-    this.setState({
-      userChoices: newUserChoices,
-    });
+    // Added functionality to prevent duplicates and submissions 
+    // with empty slots, denoted by question mark - ?.
+	chooseCards = (cardText) => {
 
-    if (newUserChoices.includes("?")) {
-      console.log("yes!");
-    } else {
-      alert("five values. Submit?");
-    }
-  };
+        const newUserChoices = this.state.userChoices
+
+        console.log("cardText: ", cardText)
+
+        if (this.state.userChoices.includes(cardText)) {
+            alert(cardText + " is already in the list.")
+
+        } else {
+            newUserChoices.unshift(cardText)
+            newUserChoices.pop()
+            
+            this.setState({
+                userChoices: newUserChoices
+            })
+        }
+
+        if (this.state.userChoices.includes("?")) {
+            this.setState({btnSaveDisabled: true})
+        } else {
+            this.setState({btnSaveDisabled: false})
+        }
+	};
+
+    
 
   hideCards = (cardText) => {
     const newHiddenCards = this.state.userExclusions;
@@ -90,9 +122,9 @@ export default class NewActivityPage extends Component {
 
           {/*
                     semantic components, buttons, property of being disabled based on a variable value or something. */}
-          <button className="btn1 green" onClick={() => this.saveSession()}>
+          <Button className="btn1 green" disabled={this.state.btnSaveDisabled} onClick={() => this.saveSession()}>
             Save session
-          </button>
+          </Button>
         </div>
 
         <div style={{ overflowX: "scroll", height: "80vh" }} attached="bottom">
@@ -104,4 +136,5 @@ export default class NewActivityPage extends Component {
       </div>
     );
   }
-}
+
+};

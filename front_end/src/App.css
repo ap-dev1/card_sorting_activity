@@ -32,6 +32,10 @@
 }
 
 
+.divDisplayCards {
+    height: 600px;
+    
+}
 
 
 .btn1 {
@@ -42,7 +46,6 @@
     font-size: 1rem;
     font-weight: 700;
     padding: 15px;
-    margin-bottom: 10px;
     text-align: center;
     outline:none;
     top:0;
@@ -52,20 +55,21 @@
     -ms-transition: all 0.2s ease-in-out 0s;
      transition: all 0.2s ease-in-out 0s;
 
-     justify-self: center;
-     align-self: center;
-     width: 40%;
-     margin-left: 30%;
-     margin-right: 30%;
-
+     width: 30%;
+     margin-left: 35%;
+     margin-right: 35%;
+     margin-bottom: 20px;
      
+
+
 }
 
 .green{
     background:#10bc98;
 	color:#fff;	
     box-shadow: 0 3px 0 #0c8d72;
-    padding: 5px;
+    
+    
 }
 
 .grey{
