@@ -37,10 +37,11 @@ authRouter.post("/login", async (req, res) => {
     },
   };
 
-  // use querry to send the message to Dynamo; it is a method of docClient.
+
   // await syntax can only be used in an async function. see above;
   const dynamoResponse = await docClient.query(dynamoParams).promise();
   const userObject = dynamoResponse.Items[0];
+  
   const authenticationResult = await bcrypt.compare(password, userObject.password);
   
 

@@ -32,7 +32,7 @@ usersDataRouter.post('/UpdatedSessions', async(request, response) => {
     const params = {
         TableName: "user_sessions",
         Item: {
-            user_email: "user@email.com",
+            user_email: userEmail,
             sessions: updatedSessions
         }
     };

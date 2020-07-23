@@ -39,6 +39,7 @@ export default class HomePage extends Component {
     const axiosResponse = await axios({
       method: "post",
       url: "http://127.0.0.1:3001/usersData//PreviousSessionsRouter",
+      data: {email:  `${this.props.match.params.user}`},
       crossDomain: true
     })
 
@@ -88,8 +89,10 @@ export default class HomePage extends Component {
     } else if (this.state.authStatus == 200) {
       return (
         <div className="divHomePage">
+            
+            <div className="divSignedInWith">{`Signed in with \n${this.props.match.params.user}`}</div>
 
-            <button className="btnNewActivity blue"  onClick={() => this.startActivity()}>New Activity</button>
+            <button className="btnNewActivity green"  onClick={() => this.startActivity()}>New Activity</button>
           
             <Divider></Divider>
 

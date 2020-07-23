@@ -15,35 +15,45 @@ export default class NewUserPage extends Component {
 
   handleSubmitCreateAccount =(event) =>
     {event.preventDefault();
-
+    console.log("state: ", this.state);
 
     const loginResult = axios({
             method: "post",
-            url: "http://127.0.0.1:3001/auth/login",
-            data: {authorization: `${this.state.userName}`, password: `${this.state.password}`},
-            crossDomain: true}).then((response)=>
-            
-              {if(response.status === 200)
-                {this.props.history.push(`/${this.state.userName}/${response.data.token}`)}})}
+            url: "http://127.0.0.1:3001/auth/createNewAccount",
+            data: {newUserName: `${this.state.newUserName}`, newPassword: `${this.state.newPassword}`, confirmedPassword: `${this.state.confirmedPassword}`},
+            crossDomain: true})
+
+    window.location.href = "/";
+
+            }
 
 
   render() {
     return (
-      <div className="divWelcome">
+        <div className="divWelcome">
 
-        <div className="divWelcome">VALUES SORT CARD APP</div>
+        <div className="divAppName brick">Create account</div>
+        <br></br>
+        <Form onSubmit={this.handleSubmitCreateAccount}>
 
-        <Form onSubmit={this.handleSubmitLogin}>
-          <Form.Field>
-            <label className="textLeft">User Name</label>
-            <input name="userName" onChange={this.handleInputChange} placeholder='User Name'/>
-          </Form.Field>
-          <Form.Field>
-            <label className="textLeft">Password</label>
-            <input name="password" onChange={this.handleInputChange} placeholder='Password' />
-          </Form.Field>
-          <Button type="submit">Login</Button>
+            <Form.Field>
+                <label className="textLeft">Email</label>
+                <input name="newUserName" onChange={this.handleInputChange} placeholder='email'/>
+            </Form.Field>
+
+            <Form.Field>
+                <label className="textLeft">Password</label>
+                <input name="newPassword" onChange={this.handleInputChange} placeholder='Password' />
+            </Form.Field>
+
+            <Form.Field>
+                <label className="textLeft">Confirm password</label>
+                <input name="confirmedPassword" onChange={this.handleInputChange} placeholder='Confirm password' />
+            </Form.Field>
+
+            <Button type="submit" className="btn1 brick">Create account</Button>
         </Form>
+
       </div>
     );
   }

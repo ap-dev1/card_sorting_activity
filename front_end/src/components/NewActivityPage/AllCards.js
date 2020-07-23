@@ -42,7 +42,7 @@ export default class AllCards extends Component {
 
   render() {
 
-    
+    console.log("AllCards, props: ", this.props)
 
     const principleBoxes = this.state.visiblePrinciples.map((principle) => {
       return (
@@ -58,7 +58,7 @@ export default class AllCards extends Component {
 
     return (
         <div>
-            <button onClick={this.bringBackHiddenCards}>unhide all ({this.state.visiblePrinciples.length}, {this.state.allPrinciples.length}) </button>
+            <button onClick={this.bringBackHiddenCards} className="alignRight">unhide all ({this.state.visiblePrinciples.length}, {this.state.allPrinciples.length}) </button>
             <div style={{ overflowX: "scroll", height: "80vh" }}>        
             {principleBoxes}
             </div>

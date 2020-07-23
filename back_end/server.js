@@ -10,10 +10,11 @@ const {authRouter} = require('./routers/authRouter.js')
 
 const {resourcesRouter} = require('./routers/resourcesRouter.js')
 
-
 const {previousSessionsRouter} = require('./routers/previousSessionsRouter.js')
 
 const {usersDataRouter} = require('./routers/usersDataRouter.js')
+
+const {createAccountRouter} = require('./routers/createAccountRouter.js')
 
 // I forgot what this was for:  
 // const resourcesRouterModules = require('./routers/resourcesRouter.js')
@@ -39,6 +40,8 @@ app.use("/usersData", previousSessionsRouter);
 // Save updatedSessions after completing a new activity:
 app.use("/usersData", usersDataRouter);
 
+// Save updatedSessions after completing a new activity:
+app.use("/auth", createAccountRouter);
 
 // Start listening:
 server.listen(port); 

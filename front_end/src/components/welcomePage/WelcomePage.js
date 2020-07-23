@@ -5,6 +5,10 @@ import axios from 'axios';
 export default class WelcomePage extends Component {
   state = {userName: "", password: ""};
 
+  createNewUser = () => {
+      window.location.href = "/CreateAccount";
+  }
+
 
   handleInputChange = (event) => {
     const newValue = event.target.value;
@@ -31,19 +35,26 @@ export default class WelcomePage extends Component {
     return (
       <div className="divWelcome">
 
-        <div className="divWelcome">VALUES SORT CARD APP</div>
+        <div className="divAppName green1">VALUES SORT CARD APP</div>
 
         <Form onSubmit={this.handleSubmitLogin}>
           <Form.Field>
-            <label className="textLeft">User Name</label>
-            <input name="userName" onChange={this.handleInputChange} placeholder='User Name'/>
+            <label className="textLeft">Email</label>
+            <input name="userName" onChange={this.handleInputChange} placeholder='Email'/>
           </Form.Field>
           <Form.Field>
             <label className="textLeft">Password</label>
             <input name="password" onChange={this.handleInputChange} placeholder='Password' />
           </Form.Field>
-          <Button type="submit">Login</Button>
+          <Button type="submit" className="btn1 green">Login</Button>
         </Form>
+
+        <br></br>
+        <br></br>
+        
+        <br></br>
+        <button className="btn1 brick" onClick={this.createNewUser}>Not registered? Sign up!</button>
+
       </div>
     );
   }

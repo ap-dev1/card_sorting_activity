@@ -6,16 +6,17 @@ import axios from "axios";
 import { Sticky, Button } from "semantic-ui-react";
 import styled, {css} from 'styled-components';
 
-const StyledButton = styled(Button)`
-  ${props =>
-    props.disabled 
-    ? css`color: #D81052;`
-      : css`color: green;`
-  }
 
-    margin: inherit;
+// const StyledButton = styled(Button)`
+//   ${props =>
+//     props.disabled 
+//     ? css`color: #D81052;`
+//       : css`color: green;`
+//   }
 
-`
+//     margin: inherit;
+
+// `
 
 
 export default class NewActivityPage extends Component {
@@ -59,18 +60,18 @@ export default class NewActivityPage extends Component {
 
     
 
-  hideCards = (cardText) => {
-    const newHiddenCards = this.state.userExclusions;
+//   hideCards = (cardText) => {
+//     const newHiddenCards = this.state.userExclusions;
 
-    newHiddenCards.unshift(cardText);
-    newHiddenCards.pop();
+//     newHiddenCards.unshift(cardText);
+//     newHiddenCards.pop();
 
-    this.setState({
-      userExclusions: newHiddenCards,
-    });
+//     this.setState({
+//       userExclusions: newHiddenCards,
+//     });
 
-    console.log("yes!");
-  };
+//     console.log("yes!");
+//   };
 
 
 
@@ -114,8 +115,10 @@ export default class NewActivityPage extends Component {
 
     return (
       <div>
-
         <div>
+
+        <div className="divSignedInWith">{`Signed in with \n${this.props.match.params.user}`}</div>
+
           <SelectedCards chosenCards={this.state.userChoices} attached="top" />
 
           {/*

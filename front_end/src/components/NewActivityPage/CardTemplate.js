@@ -10,11 +10,11 @@ const ValueDisplayer = styled.div`
   padding: 5px 5px;
   display: flex;
   flex-direction: row;
-
+  align-items: flex-end;
 
   h3 {
       margin:5px;
-      justify-content: center;
+      font-size: 1.2rem;
 
   }
   .author{
@@ -42,8 +42,8 @@ export default class CardTemplate extends Component {
       <ValueDisplayer>
         <button className='buttonsCard' onClick={()=>this.addCard()} >Add</button>
         <button className='buttonsCard hide' onClick={()=>this.hideCard()} >Hide</button>
-        <h3>{this.props.value}</h3>
 
+        <h3>{this.props.value}</h3>
         
       </ValueDisplayer>
     )

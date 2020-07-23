@@ -4,6 +4,7 @@ import {Switch, BrowserRouter as Router, Route} from 'react-router-dom'
 import WelcomePage from './components/welcomePage/WelcomePage';
 import NewActivityPage from './components/NewActivityPage/NewActivityPage';
 import HomePage from './components/HomePage/HomePage';
+import NewUserPage from './components/NewUserPage/NewUserPage';
 
 function App() {
 
@@ -21,8 +22,8 @@ function App() {
         <NewActivityPage {...props}/>  )
 
 
-    // const NewUserPageWrapper = (props) => (
-    //     <NewUserPage {...props}/>  )
+    const NewUserPageWrapper = (props) => (
+        <NewUserPage {...props}/>  )
     
 
     return (
@@ -35,7 +36,7 @@ function App() {
 
                 <Route exact path="/:user/:sessionId/NewActivityPage" render={ActivityPageWrapper}/>
 
-                {/* <Route exact path="/CreateAccount" render={NewUserPageWrapper}/> */}
+                <Route exact path="/CreateAccount" render={NewUserPageWrapper}/>
 
             </Switch>
         </Router>

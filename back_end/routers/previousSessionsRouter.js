@@ -19,11 +19,17 @@ const previousSessionsRouter = require("express").Router();
 
 previousSessionsRouter.post('/PreviousSessionsRouter', async(request, response) => {
 
+    const userEmail = request.body.email
+
+    console.log("")
+    console.log("previous sessions router, passed userEmail is: ", userEmail)
+    console.log("")
+
     const queryParams = {
         TableName: "user_sessions",
         KeyConditionExpression: "user_email = :email",
         ScanIndexForward: false,
-        ExpressionAttributeValues: {":email" : "user@email.com"}};
+        ExpressionAttributeValues: {":email" : userEmail}};
     
     const dynamoResponse = await docClient.query(queryParams).promise();
         
