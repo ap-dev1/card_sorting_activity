@@ -13,19 +13,35 @@ export default class NewUserPage extends Component {
 
 
 
-  handleSubmitCreateAccount =(event) =>
-    {event.preventDefault();
-    console.log("state: ", this.state);
+    handleSubmitCreateAccount =(event) =>
+        {event.preventDefault();
+        console.log("state: ", this.state);
 
-    const loginResult = axios({
-            method: "post",
-            url: "http://127.0.0.1:3001/auth/createNewAccount",
-            data: {newUserName: `${this.state.newUserName}`, newPassword: `${this.state.newPassword}`, confirmedPassword: `${this.state.confirmedPassword}`},
-            crossDomain: true})
+        const loginResult = axios({
+                method: "post",
+                url: "http://127.0.0.1:3001/auth/createNewAccount",
+                data: {newUserName: `${this.state.newUserName}`, newPassword: `${this.state.newPassword}`, confirmedPassword: `${this.state.confirmedPassword}`},
+                crossDomain: true})
 
-    window.location.href = "/";
+        //window.location.href = "/";
+        this.handleRDSCreateAccount();
+        };
 
-            }
+
+    
+
+    handleRDSCreateAccount =(event) => {
+        const loginResult = axios({
+                method: "post",
+                url: "http://127.0.0.1:3001/auth/createNewAccountRDS",
+                data: {newUserName: `${this.state.newUserName}`  },
+                crossDomain: true})
+
+        window.location.href = "/";
+        };
+        
+        
+        
 
 
   render() {

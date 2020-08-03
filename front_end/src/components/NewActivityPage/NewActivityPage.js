@@ -2,21 +2,9 @@ import React, { Component, createRef } from "react";
 import AllCards from "./AllCards";
 import SelectedCards from "./SelectedCards";
 import axios from "axios";
-// import { Image, Input, Menu, Segment, Sticky } from 'semantic-ui-react'
 import { Sticky, Button } from "semantic-ui-react";
 import styled, {css} from 'styled-components';
 
-
-// const StyledButton = styled(Button)`
-//   ${props =>
-//     props.disabled 
-//     ? css`color: #D81052;`
-//       : css`color: green;`
-//   }
-
-//     margin: inherit;
-
-// `
 
 
 export default class NewActivityPage extends Component {
@@ -58,27 +46,14 @@ export default class NewActivityPage extends Component {
         }
 	};
 
-    
-
-//   hideCards = (cardText) => {
-//     const newHiddenCards = this.state.userExclusions;
-
-//     newHiddenCards.unshift(cardText);
-//     newHiddenCards.pop();
-
-//     this.setState({
-//       userExclusions: newHiddenCards,
-//     });
-
-//     console.log("yes!");
-//   };
-
 
 
   saveSession = async () => {
     // previousSessions was pushed from Home page:
     const previousSessions = this.props.location.state[0].myData;
 
+
+    
     // turn the array into a string:
     var newCards = "";
     this.state.userChoices.forEach((item) => {
@@ -87,6 +62,7 @@ export default class NewActivityPage extends Component {
 
     // Create the newSession object and append it to the array of existing sessions:
     const newSession = { cards: newCards, timestamp: new Date().getTime() };
+
     previousSessions.push(newSession);
 
     // request a post:
@@ -104,7 +80,42 @@ export default class NewActivityPage extends Component {
 
     // return to home page:
     window.location.href = `/${this.props.match.params.user}/${this.props.match.params.sessionId}`;
+
+    await this.saveSessionRDS();  // without await it returns a promise and does not wait for the response;
   };
+
+
+
+
+  saveSessionRDS = async () => {
+   
+    // request a post:
+    const axiosResponse = await axios({
+      method: "post",
+      url: "http://127.0.0.1:3001/usersData/SaveSession",
+      data: {
+        sessionContent: this.state.userChoices,
+        userEmail: this.props.match.params.user,
+        timestamp:  new Date().getTime()
+      },
+      crossDomain: true,
+    });
+
+
+    // return to home page:
+    window.location.href = `/${this.props.match.params.user}/${this.props.match.params.sessionId}`;
+
+
+    
+  };
+
+
+
+
+
+
+
+
 
   render() {
     //by adding chosenCards as a prop, it gets passed down to the instance of SelectedCards.

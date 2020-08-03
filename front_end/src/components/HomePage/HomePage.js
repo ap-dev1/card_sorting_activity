@@ -46,7 +46,6 @@ export default class HomePage extends Component {
     const destructuredResponse = axiosResponse.data;
 
     this.setState({ previousSessionsData: destructuredResponse })
-
 }
 
 
@@ -74,7 +73,11 @@ export default class HomePage extends Component {
 
     const previousSessionsBoxes = this.state.previousSessionsData.map((item) => {
         const rawDate = new Date(item.timestamp); 
-        const myDate = rawDate.getMonth() + '-' +  rawDate.getDate() + '-' + rawDate.getFullYear();        
+        const myDate = rawDate.getMonth()+1 + '-' +  rawDate.getDate() + '-' + rawDate.getFullYear();
+        
+        console.log("timestamp: ", rawDate)
+        console.log("date: ", myDate)
+
 
         return (
           <SessionTemplate 

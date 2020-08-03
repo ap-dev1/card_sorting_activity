@@ -4,6 +4,7 @@ const https = require("https");
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const uuid = require('uuid/v4');
+const { sqlQuery } = require("../handlers/rdsHandler"); 
 
 
 // "connection template":
@@ -58,7 +59,7 @@ createAccountRouter.post("/createNewAccount", async (req, res) => {
             const ttl = new Date().getTime() + 7200000;
 
 
-            // Update Authentication table: 
+            // Update Authentication table: ---------------------------------------
             const params = {
                 TableName: "valuesSortCardUserAuth",
                 Item: {
@@ -75,7 +76,7 @@ createAccountRouter.post("/createNewAccount", async (req, res) => {
               });
                
               
-
+            // Update Sessions table: --------------------------------------------
               const paramsSessions = {
                 TableName: "user_sessions",
                 Item: {
@@ -102,12 +103,33 @@ createAccountRouter.post("/createNewAccount", async (req, res) => {
 
         };
     };
-
-
-
 }
 );
 
+
+// RDS  TABLE ---------------------------------------------------------------------------  RDS
+createAccountRouter.post('/createNewAccountRDS', async(request, response) => {
+
+    const newUserEmail = request.body.newUserName;
+    
+    console.log("RDS, newUserEmail: ", newUserEmail)
+    console.log("RDS, newUserEmail: ", request.body)
+
+    //   CONDITIONS, SEE ABOVE.
+
+
+    const postQuery = {
+        text: `INSERT INTO public.pv_users_table(email)
+        VALUES ($1) returning *`,
+        values: [newUserEmail],
+      };
+    
+      const dbResponse = await sqlQuery(postQuery);
+      response.json({ posts: dbResponse.rows });
+      response.end();
+    
+} )
+// RDS  TABLE ---------------------------------------------------------------------------  RDS
 
 
 module.exports = {
