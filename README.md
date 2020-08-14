@@ -1,6 +1,9 @@
 # personal_values
 
-Overview
+Live demo: 
+
+#### Overview
+
 This version of the Personal Values app was build is meant to highlight technical skills. It was inspired by the Personal Values Card Sorting technique - used in interviews and therapeutic settings. 
 
 The activity is centered around values one finds important for themselves, like competence, honesty, etc., and specific strategies for enhancing those values in oneself. The names of 92 values are written on separate cards and the client is supposed to sort them by importance - hence the name of the app. These choices serve as foundation for the next steps of the activity.
@@ -11,7 +14,7 @@ This version of the app allows users to create accounts and log in securelly, ch
 Screenshots
 
 
-Technical aspects
+#### Technical aspects
 
 It is a React app, with an Express back end, that communicate via Axios. 
 
