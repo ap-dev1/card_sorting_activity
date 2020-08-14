@@ -6,15 +6,11 @@ Live demo:
 
 The app was inspired by the Personal Values Card Sorting activity - used in corporate coaching and therapeutic settings (links at the end). The activity is centered around values one deems important, like *competence* or *honesty*, and specific strategies for enhancing those values in oneself. Each card contains the name of a value and its description, and the client is invited to sort them by importance. These choices serve as foundation for the next steps of the activity - beyond the scope of this app.
 
-
 ### Functionality:
 
-This version of the app allows clients to create accounts and log in securelly, to select cards from the deck and submit their choices ("a session"), and to review the values selected in previous sessions. 
+This version allows clients to create accounts and log in securelly, to select cards from the deck and submit their choices ("a session"), and to review the values selected in previous sessions. 
 
-
-![Landing Page](/front_end/public/screen01.png "Landing page")
-
-![Create account](/front_end/public/screen02.png "Create account")
+| ![Landing Page](/front_end/public/screen01.png "Landing page") | ![Create account](/front_end/public/screen02.png "Create account") |
 
 ![Sorting activity page](/front_end/public/screen03.png "Sorting activity")
 
