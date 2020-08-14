@@ -16,34 +16,34 @@ const {usersDataRouter} = require('./routers/usersDataRouter.js')
 
 const {createAccountRouter} = require('./routers/createAccountRouter.js')
 
-// I forgot what this was for:  
+// ???
 // const resourcesRouterModules = require('./routers/resourcesRouter.js')
+// ???
 
 
-app.use(cors());  //cors middle-ware that allows the server to respond to cross-origin requests;
-app.use(bodyParser.json()); //middle-ware that parses data as JSON;
+app.use(cors());             // cors middle-ware; allows the server to respond to cross-origin requests;
+app.use(bodyParser.json());  // middle-ware that parses data as JSON;
 app.set('port', port);
 
+const server = http.createServer(app);  // the frameowrk for the server.
 
-
-const server = http.createServer(app); //Creates the frameowrk for the server.
-
-// instance of Express; when you get /auth requests, use the router authRouter, and so on.
 app.use('/auth', authRouter); 
 
-// Load personal values cards:
-app.use('/resources', resourcesRouter);
 
-// Load previousSessions: 
+// load the cards displaying personal values:
+app.use('/resources', resourcesRouter);  
+
+// Load previous sessions, if any:
 app.use("/usersData", previousSessionsRouter);
 
-// Save updatedSessions after completing a new activity:
+// Update sessions:
 app.use("/usersData", usersDataRouter);
 
-// Save updatedSessions after completing a new activity:
+// New user:
 app.use("/auth", createAccountRouter);
+
+
 
 // Start listening:
 server.listen(port); 
-
 console.log("I'm listening, you may proceed.")

@@ -1,31 +1,58 @@
-.alignRight{   
-    margin: 5px;
-    padding: 3px;
-    font-size: .9rem;
-    font-weight: 300;
-    color: #0c8d72;
-
-
-}
-
-
-.divSignedInWith {
-    width: 100%;
-    margin: 0px;
-    padding: 1px;
-    padding-left: 6px ; 
-    font-size: .8rem;
-    font-weight: 300;
-    color: #0c8d72;
- 
+.borderTop{
+    align-self: center;
+    border: 1px solid #bdb7b5;
+    display: flex;
+    margin-bottom: 10px;
+    width: 90%;
 }
 
 .divWelcome {
     text-align: center;
-    width: 50%;
-    margin-left: 25%;
+    width: 30%;
+    margin-left: 35%;
     margin-top: 10px;
 }
+
+
+.divHomePage {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    text-align: center;
+    margin-left: 35%;
+}
+
+
+.divSignedInWith {
+    align-self: center;
+    width: 90%;
+    margin: 0px;
+    padding: 1px;
+    font-size: .8rem;
+    font-weight: 300;
+    color: #0c8d72;
+}
+
+.btnNewActivity {
+    align-self: center;
+    margin-top: 15px;
+    margin-bottom: 5px;;
+    width: 90%;
+    padding: 15px;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.sessionCard {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    border: 1px solid #060429;
+    background: #ebffc4;
+    width: 90%;
+}
+
 
 .divAppName {
     text-align: center;
@@ -43,37 +70,37 @@
 }
 
 
+.divNarrow {
+    width: 60%;
+    margin-left: 20%;
+}
+
+
+
+.divDisplayCards {
+    height: 600px;
+}
+
+
+
+
+.alignRight{   
+    margin: 5px;
+    padding: 3px;
+    font-size: .9rem;
+    font-weight: 300;
+    color: #0c8d72;
+}
+
+
 
 .textLeft {
     text-align: left;
 }
 
 
-.divHomePage {
-    display: flex;
-    flex-direction: column;
 
 
-    width: 200px;
-    text-align: center;
-    margin-left: 50%;
-}
-
-.btnNewActivity {
-    align-self: center;
-    margin-top: 15px;
-    margin-bottom: 5px;;
-    width: 90%;
-    padding: 15px;
-    font-size: 1rem;
-    font-weight: 700;
-}
-
-
-.divDisplayCards {
-    height: 600px;
-
-}
 
 
 .btn1 {
@@ -159,11 +186,7 @@
     margin-right: 2px;
     margin-left: 10px;
     align-self: right;
-    justify-self: right;
-    
-    
-
-    
+    justify-self: right;    
 }
 
 .hide{
@@ -176,14 +199,6 @@
 
 
 
-.sessionCard {
-    display: flex;
-    flex-direction: column;
-    margin: 5px;
-    border: 1px solid #060429;
-    background: #ebffc4;
-    width: 90%;
-}
 
 .timeStamp {
     align-self: center;

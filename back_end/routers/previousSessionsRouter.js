@@ -1,7 +1,10 @@
+
+// What happens here?
+
+
 const AWS = require("aws-sdk");
 const https = require("https");
 
-// Create DynamoDB connection template:
 const DynamoDB = new AWS.DynamoDB({
     region: "us-east-1",
     httpOptions: {
@@ -16,14 +19,10 @@ const docClient = new AWS.DynamoDB.DocumentClient({service: DynamoDB});
 
 const previousSessionsRouter = require("express").Router();
 
-
 previousSessionsRouter.post('/PreviousSessionsRouter', async(request, response) => {
 
     const userEmail = request.body.email
-
-    console.log("")
-    console.log("previous sessions router, passed userEmail is: ", userEmail)
-    console.log("")
+    // console.log("previous sessions router, passed userEmail is: ", userEmail)
 
     const queryParams = {
         TableName: "user_sessions",
@@ -34,6 +33,8 @@ previousSessionsRouter.post('/PreviousSessionsRouter', async(request, response) 
     const dynamoResponse = await docClient.query(queryParams).promise();
         
     const previousSessions = dynamoResponse.Items[0].sessions;
+
+
 
     // Each session is stored as an array of strings, "cards". To make them 
     // display one under each other, I create one string, with the 

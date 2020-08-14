@@ -2,6 +2,7 @@ import React, { useState, Component } from 'react';
 import CardTemplate from './CardTemplate';
 import axios from 'axios';
 
+
 export default class AllCards extends Component {
 
   state = { allPrinciples: [], visiblePrinciples: []}
@@ -9,7 +10,7 @@ export default class AllCards extends Component {
   testRequestAxios = async () => {
     const axiosResponse = await axios({
       method: "post",
-      url: "http://127.0.0.1:3001/resources/defaultCards",
+      url: "http://localhost:3001/resources/defaultCards",
       crossDomain: true
     })
 
@@ -59,9 +60,11 @@ export default class AllCards extends Component {
     return (
         <div>
             <button onClick={this.bringBackHiddenCards} className="alignRight">unhide all ({this.state.visiblePrinciples.length}, {this.state.allPrinciples.length}) </button>
-            <div style={{ overflowX: "scroll", height: "80vh" }}>        
-            {principleBoxes}
+            
+            <div style={{ overflowX: "scroll", height: "80vh"}} >        
+                {principleBoxes}
             </div>
+
         </div>
     )
   }

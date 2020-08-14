@@ -19,7 +19,7 @@ export default class NewUserPage extends Component {
 
         const loginResult = axios({
                 method: "post",
-                url: "http://127.0.0.1:3001/auth/createNewAccount",
+                url: "http://localhost:3001/auth/createNewAccount",
                 data: {newUserName: `${this.state.newUserName}`, newPassword: `${this.state.newPassword}`, confirmedPassword: `${this.state.confirmedPassword}`},
                 crossDomain: true})
 
@@ -33,7 +33,7 @@ export default class NewUserPage extends Component {
     handleRDSCreateAccount =(event) => {
         const loginResult = axios({
                 method: "post",
-                url: "http://127.0.0.1:3001/auth/createNewAccountRDS",
+                url: "http://localhost:3001/auth/createNewAccountRDS",
                 data: {newUserName: `${this.state.newUserName}`  },
                 crossDomain: true})
 
