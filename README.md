@@ -30,7 +30,7 @@ The front-end was enhanced using Styled Components, Semantic-ui-react, and Tachy
 
 Before the initial deployment - through AWS - *authentication* and *client sessions* were also stored in relational databases, using **RDS PostgreSQL**. This redundancy was implemented for practice purposes; the code was later commented out but is still included. 
 
-![Dynamo tables](/front_end/public/screen05-data.png "Dynamo tables") 
+![Dynamo tables](/front_end/public/screen05-dynamo.png "Dynamo tables") 
 
 
 #### Card sorting activity, usage examples:
