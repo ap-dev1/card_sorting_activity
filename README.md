@@ -13,15 +13,24 @@ This version allows clients to create accounts and log in securelly, to select c
 | Log in |  | Create account |
 | ----------- | - | ----------- |
 | ![Landing Page](/front_end/public/screen01.png "Landing page") | - | ![Create account](/front_end/public/screen02.png "Create account") |
-| Paragraph | Text |
+
+
+| Log in | | Create account | | Previous sessions | 
+| ----------- | | ----------- | | ----------- |
+| ![Landing Page](/front_end/public/screen01.png "Landing page") | | ![Create account](/front_end/public/screen02.png "Create account") | | ![Saved sessions](/front_end/public/screen04.png "Saved sessions") |
+
 
 View and choose cards:
 ![Sorting activity page](/front_end/public/screen03.png "Sorting activity")
 
-![Saved sessions](/front_end/public/screen04.png "Saved sessions")
+
 
 | Syntax | Description |
 | ----------- | ----------- |
+| Header | Title |
+| Paragraph | Text |
+
+| Syntax | Description |
 | Header | Title |
 | Paragraph | Text |
 
