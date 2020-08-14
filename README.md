@@ -16,6 +16,11 @@ This version allows clients to create accounts and log in securelly, to select c
 
 ![Saved sessions](/front_end/public/screen04.png "Saved sessions")
 
+| Syntax | Description |
+| ----------- | ----------- |
+| Header | Title |
+| Paragraph | Text |
+
 
 ### Technical aspects
 
