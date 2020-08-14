@@ -14,11 +14,11 @@ This version of the app allows clients to create accounts and log in securelly, 
 
 ![Landing Page](/front_end/public/screen01.png "Landing page")
 
-![Create account](/public/screen02.png "Create account")
+![Create account](/front_end/public/screen02.png "Create account")
 
-![Sorting activity page](/public/screen03.png "Sorting activity")
+![Sorting activity page](/front_end/public/screen03.png "Sorting activity")
 
-![Saved sessions](/public/screen04.png "Saved sessions")
+![Saved sessions](/front_end/public/screen04.png "Saved sessions")
 
 
 ### Technical aspects
