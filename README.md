@@ -10,13 +10,12 @@ The app was inspired by the Personal Values Card Sorting activity - used in corp
 
 This version allows clients to create accounts and log in securelly, to select cards from the deck and submit their choices ("a session"), and to review the values selected in previous sessions. 
 
-| Log in | Create account |
-| ----------- | ----------- |
-| ![Landing Page](/front_end/public/screen01.png "Landing page") | ![Create account](/front_end/public/screen02.png "Create account") |
+| Log in |  | Create account |
+| ----------- | - | ----------- |
+| ![Landing Page](/front_end/public/screen01.png "Landing page") | - | ![Create account](/front_end/public/screen02.png "Create account") |
 | Paragraph | Text |
 
-|  |  |
-
+View and choose cards:
 ![Sorting activity page](/front_end/public/screen03.png "Sorting activity")
 
 ![Saved sessions](/front_end/public/screen04.png "Saved sessions")
