@@ -9,12 +9,9 @@ This version allows clients to create accounts and log in securelly, to select c
 
 ![Sorting activity page](/front_end/public/screen04-sorting-activity.png "Sorting activity")
 
+![Landing Page](/front_end/public/screen01-login.png "Landing page")
 
-| Log in | | Create account |
-| ------ | | -------------- |
-| ![Landing Page](/front_end/public/screen01-login.png "Landing page") | | ![Create account](/front_end/public/screen02-create-account.png "Create account") | 
-
-
+![Create account](/front_end/public/screen02-create-account.png "Create account")
 
 ![Saved sessions](/front_end/public/screen03-previous-sessions.png "Saved sessions") 
 
