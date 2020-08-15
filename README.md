@@ -4,22 +4,22 @@ Live demo: comming soon!
 ### Overview
 The app was inspired by the Personal Values Card Sorting activity - used in corporate coaching and therapeutic settings (links at the end). The activity is centered around values one deems important, like *competence* or *honesty*, and specific strategies for enhancing those values in oneself. Each card contains the name of a value and its description, and the client is invited to sort them by importance. These choices serve as foundation for the next steps of the activity - beyond the scope of this app.
 
-### Functionality:
+### Functionality
 This version allows clients to create accounts and log in securelly, to select cards from the deck and submit their choices ("a session"), and to review the values selected in previous sessions. 
 
 ![Sorting activity page](/front_end/public/screen04-sorting-activity.png "Sorting activity")
 
 
 | Log in | | Create account |
-| ----------- | | ----------- |
+| ------ | | -------------- |
 | ![Landing Page](/front_end/public/screen01-login.png "Landing page") | | ![Create account](/front_end/public/screen02-create-account.png "Create account") | 
+
 
 
 ![Saved sessions](/front_end/public/screen03-previous-sessions.png "Saved sessions") 
 
 
 ### Technical aspects
-
 This is a React app, with an Express back end, that communicate via Axios. 
 The front-end was enhanced using Styled Components, Semantic-ui-react, and Tachyos.
 
