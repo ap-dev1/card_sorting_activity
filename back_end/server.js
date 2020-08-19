@@ -5,6 +5,10 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser');
 
+const AWS = require('aws-sdk');
+const { AWS_CREDS } = require('./configs/awsCreds.js');
+
+AWS.config.update(AWS_CREDS);
 
 const {authRouter} = require('./routers/authRouter.js')
 
