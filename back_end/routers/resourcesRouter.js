@@ -1,6 +1,10 @@
 
 // What happens here?
 
+//const MNG = require("mongodb");
+//console.log("MNG: ",  MNG)
+
+
 
 const AWS = require("aws-sdk");
 const https = require("https");

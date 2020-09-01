@@ -102,7 +102,7 @@ authRouter.post("/tokenAuthenticate", async (req, res) => {
 
 
     const dynamoResponse = await docClient.query(dynamoParams).promise();
-
+    console.log("auth Router, dynamo response", dynamoResponse)
     const storedTokenValue = dynamoResponse.Items[0].token.value;
     const storedTokenTTL = dynamoResponse.Items[0].token.ttl
     const now = new Date().getTime()
