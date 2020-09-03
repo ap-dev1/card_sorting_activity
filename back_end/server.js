@@ -49,5 +49,7 @@ app.use("/auth", createAccountRouter);
 
 
 // Start listening:
-server.listen(port); 
+server.listen(port);
+console.log("");
 console.log("I'm listening, you may proceed.")
+console.log("");
