@@ -1,6 +1,4 @@
-// const port = 3001;
-// const PORT = process.env.PORT || 3000;
-const port = process.env.PORT || 3001;
+// const port = 3001; see line 28-ish;
 
 const http = require('http')
 const cors = require('cors')
@@ -8,10 +6,6 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser');
 
-// const AWS = require('aws-sdk');
-// const { AWS_CREDS } = require('./configs/awsCreds.js');
-
-// AWS.config.update(AWS_CREDS);
 
 const {authRouter} = require('./routers/authRouter.js')
 
@@ -30,7 +24,10 @@ const {createAccountRouter} = require('./routers/createAccountRouter.js')
 
 app.use(cors());             // cors middle-ware; allows the server to respond to cross-origin requests;
 app.use(bodyParser.json());  // middle-ware that parses data as JSON;
-app.set('port', port);
+// app.set('port', port);
+
+app.set('port', process.env.PORT || 3001)
+//const port = process.env.PORT || 3001;
 
 const server = http.createServer(app);  // the frameowrk for the server.
 
@@ -52,7 +49,7 @@ app.use("/auth", createAccountRouter);
 
 
 // Start listening:
-server.listen(port);
+server.listen(process.env.PORT || 3001);
 console.log("");
 console.log("I'm listening, you may proceed.")
 console.log("");
