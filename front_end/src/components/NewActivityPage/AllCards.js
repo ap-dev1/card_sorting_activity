@@ -10,7 +10,8 @@ export default class AllCards extends Component {
   testRequestAxios = async () => {
     const axiosResponse = await axios({
       method: "post",
-      url: "http://localhost:3001/resources/defaultCards",
+      // url: "http://localhost:3001/resources/defaultCards",
+      url: "/resources/defaultCards",
       crossDomain: true
     })
 

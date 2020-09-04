@@ -68,7 +68,8 @@ export default class NewActivityPage extends Component {
         // request a post:
         const axiosResponse = await axios({
             method: "post",
-            url: "http://localhost:3001/usersData/UpdatedSessions",
+            // url: "http://localhost:3001/usersData/UpdatedSessions",
+            url: "/usersData/UpdatedSessions",
             data: {
                 sessionData: previousSessions,
                 userEmail: this.props.match.params.user,
@@ -92,7 +93,8 @@ export default class NewActivityPage extends Component {
         // request a post:
         const axiosResponse = await axios({
             method: "post",
-            url: "http://localhost:3001/usersData/SaveSession",
+            // url: "http://localhost:3001/usersData/SaveSession",
+            url: "/usersData/SaveSession",
             data: {
                 sessionContent: this.state.userChoices,
                 userEmail: this.props.match.params.user,
