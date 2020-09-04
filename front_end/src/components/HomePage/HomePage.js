@@ -20,8 +20,8 @@ export default class HomePage extends Component {
         try {
             const authenticationResult = await axios({
                 method: "post",
-                url: "http://localhost:3001/auth/tokenAuthenticate",
-                //url: "/auth/tokenAuthenticate",
+                //url: "http://localhost:3001/auth/tokenAuthenticate",
+                url: "/auth/tokenAuthenticate",
                 data: {
                     authorizationName: `${this.props.match.params.user}`,
                     token: `${this.props.match.params.sessionId}`,
@@ -41,8 +41,8 @@ export default class HomePage extends Component {
     requestPreviousSessions = async () => {
         const axiosResponse = await axios({
             method: "post",
-            url: "http://localhost:3001/usersData//PreviousSessionsRouter",
-            //url: "/usersData//PreviousSessionsRouter",
+            // url: "http://localhost:3001/usersData//PreviousSessionsRouter",
+            url: "/usersData//PreviousSessionsRouter",
             data: { email: `${this.props.match.params.user}` },
             crossDomain: true
         })
