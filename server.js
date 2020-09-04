@@ -27,7 +27,8 @@ const {createAccountRouter} = require('./routers/createAccountRouter.js')
 app.use(cors());             // cors middle-ware; allows the server to respond to cross-origin requests;
 
 app.use(bodyParser.json());  // middle-ware that parses data as JSON;
-app.set('port', port);
+
+//app.set('port', port);
 
 
 const server = http.createServer(app);  // the frameowrk for the server.
@@ -58,8 +59,17 @@ Thanks Isaac. I figured out the issue.
 Thank you for your help and time. 
  */
 
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static('front_end/build'));
+
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, 'front_end', 'build', 'index.html')) // __dirname stands for root
+    })
+}
+
 // Start listening:
 server.listen(port);
+
 console.log("");
 console.log("I'm listening, you may proceed.")
 console.log("");
