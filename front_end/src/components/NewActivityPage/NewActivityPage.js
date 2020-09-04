@@ -80,9 +80,11 @@ export default class NewActivityPage extends Component {
         console.log("RESPONSE: ", axiosResponse);
 
         // return to home page:
-        window.location.href = `/${this.props.match.params.user}/${this.props.match.params.sessionId}`;
+        //window.location.href = `/${this.props.match.params.user}/${this.props.match.params.sessionId}`;
 
         await this.saveSessionRDS();  // without await it returns a promise and does not wait for the response;
+
+        this.props.history.push(`/${this.props.match.params.user}/${this.props.match.params.sessionId}`);
     };
 
 
@@ -105,7 +107,8 @@ export default class NewActivityPage extends Component {
 
 
         // return to home page:
-        window.location.href = `/${this.props.match.params.user}/${this.props.match.params.sessionId}`;
+        // window.location.href = `/${this.props.match.params.user}/${this.props.match.params.sessionId}`;
+        //this.props.history.push(`/${this.props.match.params.user}/${this.props.match.params.sessionId}`)
     };
 
 
