@@ -1,4 +1,7 @@
-const port = 3001
+// const port = 3001;
+// const PORT = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
+
 const http = require('http')
 const cors = require('cors')
 const express = require('express')
