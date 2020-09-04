@@ -2,8 +2,8 @@ import React, { Component, createRef } from "react";
 import AllCards from "./AllCards";
 import SelectedCards from "./SelectedCards";
 import axios from "axios";
-import { Sticky, Button } from "semantic-ui-react";
-import styled, { css } from 'styled-components';
+// import { Sticky, Button } from "semantic-ui-react";
+// import styled, { css } from 'styled-components';
 
 
 
@@ -84,32 +84,37 @@ export default class NewActivityPage extends Component {
 
         await this.saveSessionRDS();  // without await it returns a promise and does not wait for the response;
 
+
         this.props.history.push(`/${this.props.match.params.user}/${this.props.match.params.sessionId}`);
     };
 
 
 
 
-    saveSessionRDS = async () => {
+    // saveSessionRDS = async () => {
 
-        // request a post:
-        const axiosResponse = await axios({
-            method: "post",
-            // url: "http://localhost:3001/usersData/SaveSession",
-            url: "/usersData/SaveSession",
-            data: {
-                sessionContent: this.state.userChoices,
-                userEmail: this.props.match.params.user,
-                timestamp: new Date().getTime()
-            },
-            crossDomain: true,
-        });
+    //     console.log("new activity, saveSessionsRDS, BEFORE saving.")
+
+    //     // request a post:
+    //     const axiosResponse = await axios({
+    //         method: "post",
+    //         // url: "http://localhost:3001/usersData/SaveSession",
+    //         url: "/usersData/SaveSession",
+    //         data: {
+    //             sessionContent: this.state.userChoices,
+    //             userEmail: this.props.match.params.user,
+    //             timestamp: new Date().getTime()
+    //         },
+    //         crossDomain: true,
+    //     });
 
 
-        // return to home page:
-        // window.location.href = `/${this.props.match.params.user}/${this.props.match.params.sessionId}`;
-        //this.props.history.push(`/${this.props.match.params.user}/${this.props.match.params.sessionId}`)
-    };
+    //     // return to home page:
+    //     // window.location.href = `/${this.props.match.params.user}/${this.props.match.params.sessionId}`;
+    //     //this.props.history.push(`/${this.props.match.params.user}/${this.props.match.params.sessionId}`)
+    //     console.log("new activity, saveSessionsRDS, after saving.")
+        
+    // };
 
 
 
