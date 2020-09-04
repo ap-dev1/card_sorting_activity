@@ -5,6 +5,13 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'semantic-ui-css/semantic.min.css'
 
+if (App) {
+    console.log("APPP!")
+} else {
+    console.log("pula mea.")
+};
+
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
