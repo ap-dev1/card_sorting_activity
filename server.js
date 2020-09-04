@@ -23,6 +23,7 @@ const {createAccountRouter} = require('./routers/createAccountRouter.js')
 
 
 app.use(cors());             // cors middle-ware; allows the server to respond to cross-origin requests;
+
 app.use(bodyParser.json());  // middle-ware that parses data as JSON;
 // app.set('port', port);
 
@@ -47,6 +48,15 @@ app.use("/usersData", usersDataRouter);
 app.use("/auth", createAccountRouter);
 
 
+/* 
+Thanks Isaac. I figured out the issue. 
+
+1) Instead of    app.use('/mychurch', require('./routes/members')); //home route. 
+
+2) I needed      app.use('/', require('./routes/members')); 
+
+Thank you for your help and time. 
+ */
 
 // Start listening:
 server.listen(process.env.PORT || 3001);
