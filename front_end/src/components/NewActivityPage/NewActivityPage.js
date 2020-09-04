@@ -68,8 +68,8 @@ export default class NewActivityPage extends Component {
         // request a post:
         const axiosResponse = await axios({
             method: "post",
-            // url: "http://localhost:3001/usersData/UpdatedSessions",
-            url: "/usersData/UpdatedSessions",
+            url: "http://localhost:3001/usersData/UpdatedSessions",
+            //url: "/usersData/UpdatedSessions",
             data: {
                 sessionData: previousSessions,
                 userEmail: this.props.match.params.user,
