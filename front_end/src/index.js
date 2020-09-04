@@ -11,6 +11,7 @@ if (App) {
     console.log("pula mea.")
 };
 
+console.log("index.js, before React.DOM.render()")
 
 ReactDOM.render(
   <React.StrictMode>

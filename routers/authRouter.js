@@ -10,6 +10,7 @@ const uri = "mongodb+srv://user22:gm3i2jrnmdeY11C9@cluster0.5cuj6.mongodb.net/db
 
 const client = new MongoClient(uri, { useUnifiedTopology: true });
 
+console.log("inside authRouter, after client, line 11. 'client' is type ", typeof(client), ".")
 
 authRouter.post("/login", async (req, res) => {
 
@@ -23,6 +24,8 @@ authRouter.post("/login", async (req, res) => {
     const query = { email: authorizationName };
 
     const userObject = await collection.findOne(query);
+
+    console.log("authRouter, userObject: ", userObject)
 
     const authenticationResult = await bcrypt.compare(password, userObject.password);
 

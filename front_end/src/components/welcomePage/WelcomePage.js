@@ -21,11 +21,12 @@ export default class WelcomePage extends Component {
     handleSubmitLogin = (event) => {
         event.preventDefault();
 
-
+        console.log("handle submit, in welcome page, before url and post request")
+        
         const loginResult = axios({
             method: "post",
-            // url: "http://localhost:3001/auth/login",
-            url: "/auth/login",
+            url: "http://localhost:3001/auth/login",
+            //url: "/auth/login",
             data: { authorization: `${this.state.userName}`, password: `${this.state.password}` },
             crossDomain: true
         }).then((response) => {

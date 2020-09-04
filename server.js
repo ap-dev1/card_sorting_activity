@@ -1,4 +1,6 @@
-// const port = 3001; see line 28-ish;
+//const port = 3001; 
+const port = process.env.PORT || 3001
+console.log("index.js, const port: ", port)
 
 const http = require('http')
 const cors = require('cors')
@@ -25,10 +27,8 @@ const {createAccountRouter} = require('./routers/createAccountRouter.js')
 app.use(cors());             // cors middle-ware; allows the server to respond to cross-origin requests;
 
 app.use(bodyParser.json());  // middle-ware that parses data as JSON;
-// app.set('port', port);
+app.set('port', port);
 
-app.set('port', process.env.PORT || 3001)
-//const port = process.env.PORT || 3001;
 
 const server = http.createServer(app);  // the frameowrk for the server.
 
@@ -59,7 +59,7 @@ Thank you for your help and time.
  */
 
 // Start listening:
-server.listen(process.env.PORT || 3001);
+server.listen(port);
 console.log("");
 console.log("I'm listening, you may proceed.")
 console.log("");
