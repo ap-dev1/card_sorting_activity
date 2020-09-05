@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import { Button, Form } from 'semantic-ui-react'
 import axios from 'axios';
 
+console.log("")
+console.log("new user page, after imports.")
+console.log("")
+
 export default class NewUserPage extends Component {
   state = {newUserName: "", newPassword: "", confirmedPassword: ""};
 
@@ -34,18 +38,17 @@ export default class NewUserPage extends Component {
 
     
 
-    handleRDSCreateAccount =(event) => {
-        const loginResult = axios({
-                method: "post",
-                // url: "http://localhost:3001/auth/createNewAccountRDS",
-                url: "/auth/createNewAccountRDS",
-                data: {newUserName: `${this.state.newUserName}`  },
-                crossDomain: true})
+    // handleRDSCreateAccount =(event) => {
+    //     const loginResult = axios({
+    //             method: "post",
+    //             // url: "http://localhost:3001/auth/createNewAccountRDS",
+    //             url: "/auth/createNewAccountRDS",
+    //             data: {newUserName: `${this.state.newUserName}`  },
+    //             crossDomain: true})
 
-        //window.location.href = "/";
-        this.props.history.push("/");
-
-        };
+    //     //window.location.href = "/";
+    //     this.props.history.push("/");
+    //     };
         
         
         
