@@ -6,7 +6,13 @@ export default class WelcomePage extends Component {
     state = { userName: "", password: "" };
 
     createNewUser = () => {
-        window.location.href = "/CreateAccount";
+        // window.location.href = "/CreateAccount";
+        // this.props.history.push(`/${this.props.match.params.user}/${this.props.match.params.sessionId}`);
+        console.log("----------------------------------------")
+        console.log("this.props.history.push(/CreateAccount)", this.props.history.push("/CreateAccount"))
+        console.log("----------------------------------------")
+
+        this.props.history.push("/CreateAccount")
     }
 
 

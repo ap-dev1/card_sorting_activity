@@ -25,8 +25,10 @@ export default class NewUserPage extends Component {
                 data: {newUserName: `${this.state.newUserName}`, newPassword: `${this.state.newPassword}`, confirmedPassword: `${this.state.confirmedPassword}`},
                 crossDomain: true})
 
-        //window.location.href = "/";
-        this.handleRDSCreateAccount();
+        // window.location.href = "/";
+        // this.handleRDSCreateAccount();
+        this.props.history.push("/");
+
         };
 
 
@@ -40,7 +42,9 @@ export default class NewUserPage extends Component {
                 data: {newUserName: `${this.state.newUserName}`  },
                 crossDomain: true})
 
-        window.location.href = "/";
+        //window.location.href = "/";
+        this.props.history.push("/");
+
         };
         
         
