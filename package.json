@@ -3,7 +3,7 @@
     "version": "0.1.0",
 
     "dependencies": {
-        "aws-sdk": "^2.656.0",
+        "aws-sdk": "^2.814.0",
         "bcrypt": "^5.0.0",
         "bcryptjs": "^2.4.3",
         "body-parser": "^1.19.0",
